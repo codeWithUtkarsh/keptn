@@ -14,6 +14,6 @@ spec:
   - route:
     - destination:
         host: web-app-hardening-helloservice-service-canary.web-app-hardening.svc.cluster.local
+      weight: 100
     - destination:
         host: web-app-hardening-helloservice-service-primary.web-app-hardening.svc.cluster.local
-      weight: 100
