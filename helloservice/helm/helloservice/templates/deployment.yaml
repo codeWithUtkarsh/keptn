@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloservice
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: helloservice
+  template:
+    metadata:
+      labels:
+        app: helloservice
+    spec:
+      containers:
+        - name: "ui"
+          image: "1645370/ms:ui"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.service.targetport }}
+          
