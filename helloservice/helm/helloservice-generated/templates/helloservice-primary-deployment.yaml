@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: helloservice-primary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloservice-primary
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: helloservice-primary
+    spec:
+      containers:
+      - image: 1645370/ms:ui
+        imagePullPolicy: Always
+        name: ui
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

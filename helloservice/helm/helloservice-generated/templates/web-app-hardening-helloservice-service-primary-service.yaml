@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/instance: web-app-hardening-helloservice
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ui-helm-primary
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: ui-helm-0.1.0
+  name: web-app-hardening-helloservice-service-primary
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app.kubernetes.io/instance: web-app-hardening-helloservice
+    app.kubernetes.io/name: ui-helm-primary
+  type: NodePort
+status:
+  loadBalancer: {}
